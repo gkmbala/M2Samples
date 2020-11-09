@@ -1,0 +1,147 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Company\PartExchnage\Block\Exchangeform $block */
+?>
+<?php
+$customerData = $block->getCustomerData();
+$isProductPage = $this->getIsProductPage();
+$product = $this->getProduct();
+if ($isProductPage): ?>
+    <h2><?= $block->escapeHtml(__('PART EXCHANGE')) ?></h2>
+    <span><?= $block->escapeHtml(__("Please fill in your watch details below and we'll be in touch")) ?></span>
+<?php else:
+    echo $this->getLayout()
+    ->createBlock('Magento\Cms\Block\Block')
+    ->setBlockId('part_exchange')
+    ->toHtml();
+endif;
+?>
+<form class="form exchange-part-form" action="<?php echo $block->getFormAction(); ?>" method="post" id="form-validate"
+      enctype="multipart/form-data" autocomplete="off" data-mage-init='{"validation":{}}'>
+    <input type="hidden" name="exchange_form" value="part_exchange">
+    <fieldset class="fieldset watch-details">
+        <legend class="legend"><span><?= $block->escapeHtml(__('Your watch details')) ?></span></legend><br>
+        <div class="field">
+            <label class="label" for="brand-field"><span><?= $block->escapeHtml(__('Brand')) ?></span></label>
+            <div class="control">
+                <input name="brand" id="brand-field" title=<?= $block->escapeHtml(__('Brand')) ?> value=""
+                       class="input-text" type="text" data-validate="{required:false}">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="model-field"><span><?= $block->escapeHtml(__('Model')) ?></span></label>
+            <div class="control">
+                <input name="model" id="model-field" title=<?= $block->escapeHtml(__('Model')) ?> value=""
+                       class="input-text" type="text" data-validate="{required:false}">
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <input type="checkbox" name="original_box" value="no" id="original-box" class="checkbox">
+                <label class="label" for="original-box-field">
+                    <span><?= $block->escapeHtml(__('Original box')) ?></span>
+                </label>
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <input type="checkbox" name="original_warranty" value="no" id="original-warranty" class="checkbox">
+                <label class="label" for="original-warranty-field">
+                    <span><?= $block->escapeHtml(__('Original warranty')) ?>
+                </span></label>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="any-additional-accessories">
+                <span><?= $block->escapeHtml(__('Any additional accessories')) ?></span></label>
+            <div class="control">
+                <textarea name="additional_accessories" id="additional-accessories" rows="5" cols="8" class="input-text"
+                          data-validate="{required:false}"></textarea>
+            </div>
+        </div>
+        <?php if (!$isProductPage): ?>
+        <div class="field">
+            <label class="label" for="interested-in-buying">
+                <span><?= $block->escapeHtml(__('Are you looking to Part exchange the watch, if so which what are you 
+                interested in buying')) ?></span></label>
+            <div class="control">
+                <textarea name="interested_in_buying" id="interested-in-buying" rows="5" cols="8" class="input-text"
+                          data-validate="{required:false}"></textarea>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" for="paper-work-date-field"><span><?= $block->escapeHtml(__('Paper work date')) ?>
+                </span></label>
+            <div class="control">
+                <input name="paper_work_date" id="paper-work-date" title=<?= $block->escapeHtml(__('Paper work date'))?>
+                value="" class="input-text" type="text" data-validate="{required:false}">
+            </div>
+        </div>
+        <?php endif; ?>
+        <div class="field">
+            <label class="label" for="expected-value-field">
+                <span><?= $block->escapeHtml(__('£ expected value')) ?></span></label>
+            <div class="control">
+                <input name="expected_value" id="expected-value" title=<?= $block->escapeHtml(__('£ expected value')) ?>
+                value="" class="validate-length minimum-length-1 maximum-length-6 input-text" type="number"
+                       data-validate="{required:false, 'validate-length':true}"><span class="valueError"></span>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="fieldset contact-information">
+        <legend class="legend"><span><?= $block->escapeHtml(__('Contact information')) ?></span></legend><br>
+        <div class="field required">
+            <label class="label" for="contact-name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+            <div class="control">
+                <input name="contact_name" id="contact-name" title=<?= $block->escapeHtml(__('Name')) ?>
+                value="<?php if ($customerData): echo $customerData->getFirstname(); endif; ?>"
+                       class="input-text" type="text" data-validate="{required:true}"><span class="error"></span>
+            </div>
+        </div>
+        <div class="field required">
+            <label class="label" for="contact-phone"><span><?= $block->escapeHtml(__('Phone')) ?></span></label>
+            <div class="control">
+                <input name="contact_phone" id="contact-phone" title=<?= $block->escapeHtml(__('Phone')) ?> value=""
+                       class="input-text" type="tel" data-validate="{required:true}"><span class="error"></span>
+            </div>
+        </div>
+        <div class="field required">
+            <label class="label" for="contact-email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+            <div class="control">
+                <input name="contact_email" id="contact-email" title=<?= $block->escapeHtml(__('Email')) ?>
+                value="<?php if ($customerData): echo $customerData->getEmail(); endif; ?>"
+                       class="input-text email" type="email" data-validate="{required:true}"><span class="error"></span>
+            </div>
+        </div>
+    </fieldset>
+    <?php if ($isProductPage): ?>
+    <fieldset class="fieldset product-name-part-exchange">
+        <legend class="legend"><span><?= $block->escapeHtml(__('Watch you wish to buy:')) ?></span></legend><br>
+        <label class="label" for="product-name"><span><?php echo $product->getName(); ?></span></label>
+        <input type="hidden" name="exchange_product_name" value="<?php echo $product->getName(); ?>">
+    </fieldset>
+        <div class="note"></div>
+    <div class="custom-actions-toolbar">
+        <div class="custom-primary">
+            <div type="submit" class="popup-submit" id="popup-form-submit" title="<?= $block->escapeHtml(__('Send')) ?>">
+                <span><?= $block->escapeHtml(__('Send')) ?></span></div>
+        </div>
+    </div>
+        <?php else: ?>
+    <div class="custom-actions-toolbar">
+        <div class="custom-primary">
+            <button type="submit" class="custom-part-exchange" title="<?= $block->escapeHtml(__('Send')) ?>">
+                <span><?= $block->escapeHtml(__('Send')) ?></span></button>
+        </div>
+    </div>
+    <?php endif; ?>
+</form>
+<script>
+    require(['exchangerequire'], function(exchangerequire) {
+        exchangerequire();
+    });
+</script>

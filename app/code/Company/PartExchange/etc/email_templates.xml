@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="partexchange_template_email" label="Part Exchange Email Form" file="partexchange_template_email.html" type="html"
+              module="Company_PartExchange" area="frontend"/>
+</config>
