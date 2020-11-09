@@ -1,0 +1,74 @@
+<!--@subject Part Exchange Enquiry Form @-->
+
+{{template config_path="design/email/header_template"}}
+Hello Admin,
+<table>
+    <tr class="email-intro">
+        <td>
+            <p class="greeting">Part Exchange form details for Admin</p>
+        </td>
+    </tr>
+</table>
+</table>
+<table>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Brand</td>
+        <td>{{data.brand}}</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Model</td>
+        <td>{{data.model}}</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>original box</td>
+        <td>{{data.original_box}}</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>original warranty</td>
+        <td>{{data.original_warranty}}</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Additional accessories</td>
+        <td>{{data.additional_accessories}}</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Interested_in_buying</td>
+        <td>{{data.interested_in_buying}}</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>Paper_work_date</td>
+        <td>{{data.paper_work_date}}</td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>Expected_value</td>
+        <td>{{data.expected_value}}</td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>Exchange_product_name</td>
+        <td>{{data.exchange_product_name}}</td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>Contact_name</td>
+        <td>{{data.contact_name}}</td>
+    </tr>
+    <tr>
+        <td>11</td>
+        <td>Contact_phone</td>
+        <td>{{data.contact_phone}}</td>
+    </tr>
+    </tbody>
+</table>
+
+
+{{template config_path="design/email/footer_template"}}

@@ -1,0 +1,22 @@
+{
+    "name": "Company/module-partexchange",
+    "description": "",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Balaji K",
+            "email": "gkmbala@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Company\\PartExchange\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

@@ -1,0 +1,16 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <preference for="\Magento\Framework\Mail\Template\TransportBuilder" type="Company\PartExchange\Model\Mail\TransportBuilder" />
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+                <argument name="collections" xsi:type="array">
+                <item name="Company_partexchange_exchange_listing_data_source" xsi:type="string">Company\PartExchange\Model\ResourceModel\Exchange\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Company\PartExchange\Model\ResourceModel\Exchange\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">part_exchange</argument>
+            <argument name="resourceModel" xsi:type="string">Company\PartExchange\Model\ResourceModel\Exchange</argument>
+        </arguments>
+    </virtualType>
+</config>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    	<table name="part_exchange" resource="default" comment="Create table using declarative schema">
+    		<column xsi:type="int" name="id" padding="10" identity="true" unsigned="true" nullable="false"
+					comment="Entity Id"/>
+    		<column xsi:type="varchar" name="brand" nullable="true" length="255" comment="Watch Brand"/>
+    		<column xsi:type="varchar" name="model" nullable="true" length="255" comment="Watch Model"/>
+    		<column xsi:type="varchar" name="original_box" nullable="false" comment="Original Box"/>
+    		<column xsi:type="varchar" name="original_warranty" nullable="false" comment="original Warranty"/>
+    		<column xsi:type="text" name="accessories" nullable="true" comment="Any additional accessories"/>
+    		<column xsi:type="text" name="interested_buying" nullable="true" comment="interested-in-buying"/>
+            <column xsi:type="varchar" name="paper_work_date" nullable="true" length="255" comment="Paper work date"/>
+            <column xsi:type="varchar" name="expected_value" nullable="true" length="255" comment="Expected Value price"/>
+            <column xsi:type="varchar" name="contact_name" nullable="false" length="255" comment="Contact person name"/>
+            <column xsi:type="varchar" name="contact_phone" nullable="false" length="255" comment="Contact person phone"/>
+            <column xsi:type="varchar" name="contact_email" nullable="false" length="255" comment="Contact person email"/>
+            <column xsi:type="varchar" name="exchange_product_name" nullable="true" length="255"
+					comment="Exchange form product namel"/>
+			<column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+					comment="Created At"/>
+			<column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+					comment="Updated At"/>
+			<constraint xsi:type="primary" referenceId="PRIMARY">
+    			<column name="id"/>
+    		</constraint>
+    	</table>
+</schema>

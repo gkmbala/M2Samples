@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="partexchange" translate="label" sortOrder="1000">
+            <label>Part Exchange</label>
+        </tab>
+        <section id="partexchange" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Part Exchange Email Address</label>
+            <tab>partexchange</tab>
+            <resource>Company_PartExchange::partexchange</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="emailaddress" type="text" translate="label" sortOrder="60" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Email ID</label>
+                    <validate>required-entry alphanumeric</validate>
+                    <config_path>partexchange/general/emailaddress</config_path>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
